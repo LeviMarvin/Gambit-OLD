@@ -1,0 +1,20 @@
+name: Gambit
+version: ${project.version}
+main: com.truscert.gambit.Gambit
+#depend: [ MythicMobs ]
+authors: [ Levi_Marvin ]
+commands:
+  gambit:
+    description: 'This command is Gambit plugin command.'
+  create:
+    description: 'This command is Gambit plugin command.'
+  join:
+    description: 'This command is Gambit plugin command.'
+  leave:
+    description: 'This command is Gambit plugin command.'
+  remove:
+    description: 'This command is Gambit plugin command.'
+  menu:
+    description: 'This command is Gambit plugin command.'
+  debug:
+    description: 'This command is Gambit plugin command.'

@@ -1,0 +1,47 @@
+Rooms:
+  RoomIDs:
+
+team1_point:
+  ==: org.bukkit.Location
+  world: world
+  x: 0
+  y: 60
+  z: 0
+  pitch: 32.999996
+  yaw: 217.26373
+team2_point:
+  ==: org.bukkit.Location
+  world: world
+  x: 0
+  y: 60
+  z: 0
+  pitch: 32.999996
+  yaw: 217.26373
+
+center_point:
+  ==: org.bukkit.Location
+  world: world
+  x: 0
+  y: 60
+  z: 0
+  pitch: 32.999996
+  yaw: 217.26373
+
+monster_float:
+  #刷怪点X/Z坐标浮动值
+  x: 100
+  z: 100
+monster_radius: 5
+#以刷怪点为圆心，怪物生成的半径
+portal_point:
+  #传送门坐标
+  one: "50,50,50"
+  #队伍一传送门坐标
+  two: "-50,-50,-50"
+  #队伍二传送门坐标
+lose_num_s:  5
+#小阻绝者造成每秒失去的“荧光”数量
+lose_num_n:  10
+#中阻绝者造成每秒失去的“荧光”数量
+lose_num_m:  20
+#大阻绝者造成每秒失去的“荧光”数量
