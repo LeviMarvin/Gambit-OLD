@@ -1,4 +1,5 @@
 # Gambit
-A unique Minecraft mini-game plugin!
+### A unique Minecraft mini-game plugin!
 ---
-English 中文文档
+English　　　　中文文档
+
