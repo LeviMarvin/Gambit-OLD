@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class CreateWorld {
     private static CreateWorld instance;
-    public static CreateWorld getInstance() {
+    public static CreateWorld getWorld() {
         if (instance == null) instance = new CreateWorld();
         return instance;
     }

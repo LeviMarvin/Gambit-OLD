@@ -5,6 +5,7 @@ import com.truscert.gambit.game.Room;
 import com.truscert.gambit.utils.Timestamp;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -101,6 +102,24 @@ public class RoomManager {
     //Create room
     public Room createRoom(Location central, Location team1, Location team2) {
         int num = roomSize + 1;
+        roomSize++;
+
+        Room room = new Room(num, Timestamp.getInstance().getTs(), central, team1, team2);
+        Rooms.add(room);
+
+        Gambit.getInstance().getConfig().set("Rooms." + num, serializeLoc(central));
+        List<Integer> list = Gambit.getInstance().getConfig().getIntegerList("Rooms.RoomIDs");
+        list.add(num);
+        Gambit.getInstance().getConfig().set("Rooms.RoomIDs", list);
+        Gambit.getInstance().saveConfig();
+
+        return room;
+    }
+
+    public Room createRoom(int id, Location central, Location team1, Location team2, CommandSender cs) {
+        int num = id + 1;
+        cs.sendMessage("§l§aThe room is" + num);
+
         roomSize++;
 
         Room room = new Room(num, Timestamp.getInstance().getTs(), central, team1, team2);

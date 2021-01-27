@@ -1,6 +1,6 @@
 package com.truscert.gambit;
 
-import com.truscert.gambit.command.Command;
+import com.truscert.gambit.command.*;
 import com.truscert.gambit.game.data.ConfigData;
 import com.truscert.gambit.listener.GameListener;
 import com.truscert.gambit.listener.MenuListener;
@@ -10,6 +10,7 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 public final class Gambit extends JavaPlugin {
@@ -21,7 +22,7 @@ public final class Gambit extends JavaPlugin {
     public final static boolean DEBUGGABLE = true;
     public final static String DEBUGNOTICE = "§l§e[§6DEBUG§e]§f ";
     public final static String PREFIX = "§l§6[Gambit] ";
-    HashMap<String, String> dataMap = new HashMap<String, String>();
+    HashMap<String, Class<?>> dataMap = new HashMap<String, Class<?>>();
 
     @Override
     public void onEnable(){
@@ -60,21 +61,33 @@ public final class Gambit extends JavaPlugin {
                 plugin.getConfig().getSerializable("Team2_point", Location.class);
     }
 
+    /**
+     * This fuction
+     *
+     */
     private void initCommand() {
         Bukkit.getConsoleSender().sendMessage(PREFIX + "§a +初始化命令...");
-        CommandExecutor CE = new Command();
+        //CommandExecutor CE = new Command();
 
-        dataMap.put("gambit", "gambit");
-        dataMap.put("debug", "debug");
-        dataMap.put("menu", "menu");
-        dataMap.put("leave", "leave");
-        dataMap.put("join", "join");
-        dataMap.put("remove", "remove");
-        dataMap.put("create", "create");
+        dataMap.put("gambit", Create.class);
+        dataMap.put("debug", Debug.class);
+        dataMap.put("menu", Menu.class);
+        dataMap.put("leave", Leave.class);
+        dataMap.put("join", Join.class);
+        dataMap.put("remove", Remove.class);
+        dataMap.put("create", Create.class);
 
         dataMap.forEach((k, v) -> {
-            Bukkit.getConsoleSender().sendMessage(PREFIX + "§a |  注册命令：" + v);
-            Bukkit.getPluginCommand(v + "").setExecutor(CE);
+            CommandExecutor CE = null;
+            try {
+                CE = (CommandExecutor) v.getDeclaredConstructor().newInstance();
+            } catch (
+                    InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e
+            ) {
+                e.printStackTrace();
+            }
+            Bukkit.getConsoleSender().sendMessage(PREFIX + "§a |  注册命令：" + k);
+            Bukkit.getPluginCommand(k + "").setExecutor(CE);
         });
     }
 
