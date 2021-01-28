@@ -9,7 +9,6 @@ com\truscert\gambit\command\Leave.class
 com\truscert\gambit\command\Menu.class
 com\truscert\gambit\listener\GameListener.class
 com\truscert\gambit\game\data\ConfigData.class
-com\truscert\gambit\listener\GameListener$1.class
 com\truscert\gambit\manager\RoomManager.class
 com\truscert\gambit\world\CreateWorld.class
 com\truscert\gambit\listener\MenuListener.class

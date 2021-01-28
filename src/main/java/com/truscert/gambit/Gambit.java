@@ -29,7 +29,7 @@ public final class Gambit extends JavaPlugin {
         plugin = this;
         if(!getDataFolder().exists())
             getDataFolder().mkdir();
-
+        
         if(getConfig() == null)
             saveDefaultConfig();
 

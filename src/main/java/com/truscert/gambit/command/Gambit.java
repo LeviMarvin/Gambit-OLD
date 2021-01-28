@@ -12,10 +12,9 @@ public class Gambit implements CommandExecutor {
             sender.sendMessage("§6Welcome use the Gambit plugin!");
             sender.sendMessage("§6Have fun! :)");
             sender.sendMessage("§a+============ Gambit ============+");
-            return true;
         } else {
             sender.sendMessage("§cCommand Error!");
-            return true;
         }
+        return true;
     }
 }

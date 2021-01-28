@@ -37,7 +37,7 @@ public class Create implements CommandExecutor {
             case 1:
                 if (!(NumberUtils.isNumber(args[0]))) sender.sendMessage("§cThe option parameter must be a number!");
 
-                Room _room = RoomManager.getManager().createRoom(
+                RoomManager.getManager().createRoom(
                         Integer.parseInt(args[0]),
                         ConfigData.getData().roomCenter,
                         ConfigData.getData().roomTeam1,

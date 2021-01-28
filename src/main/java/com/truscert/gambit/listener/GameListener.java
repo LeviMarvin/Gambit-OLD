@@ -14,14 +14,14 @@ import java.util.List;
 
 public class GameListener implements Listener{
 
-    static List<String> players = new ArrayList<String>();
+    static List<String> players = new ArrayList<>();
     static Gambit plugin;
 
 
 
     @EventHandler
-    public void onDamange(EntityDamageByEntityEvent e){
-        if(e.getEntity() instanceof Player && players.contains(((Player) e.getEntity()).getName())){
+    public void onDamage(EntityDamageByEntityEvent e){
+        if(e.getEntity() instanceof Player && players.contains(e.getEntity().getName())){
             e.setCancelled(true);
         }
     }
@@ -37,11 +37,6 @@ public class GameListener implements Listener{
         final String name = p.getName();
         players.add(name);
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
-            @Override
-            public void run(){
-                players.remove(name);
-            }
-        }, 100L);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> players.remove(name), 100L);
     }
 }

@@ -14,6 +14,4 @@ public class ConfigData {
     public Location roomTeam1;
     public Location roomTeam2;
 
-    //TODO WORLD
-    public World world;
 }

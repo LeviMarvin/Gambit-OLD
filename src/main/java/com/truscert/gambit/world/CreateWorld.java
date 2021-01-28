@@ -16,7 +16,7 @@ public class CreateWorld {
     public World create() throws IOException {
         World world = null;
         Copy.copy(Gambit.getInstance().getDataFolder().toString(), null);
-
+        //TODO
         return world;
     }
 }

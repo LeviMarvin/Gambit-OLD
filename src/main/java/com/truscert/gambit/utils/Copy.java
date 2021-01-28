@@ -7,8 +7,9 @@ public class Copy {
         File file1 = new File(f1);
         /*     File file2 = new File(f2);     */
 
-        File[] flist=file1.listFiles();
-        for (File f : flist) {
+        File[] listFiles = file1.listFiles();
+        assert listFiles != null;
+        for (File f : listFiles) {
             if(f.isFile()){
                 copyFile2(f.getPath(),f2+"/"+f.getName()); //调用复制文件的方法
                 //System.out.println("原路径["+f.getPath()+"] 被复制路径["+f2+"/"+f.getName()+"]");
@@ -41,7 +42,7 @@ public class Copy {
             InputStream input =new FileInputStream(f1);
             OutputStream output=new FileOutputStream(f2);
             byte[] bt=new byte[1024];
-            if((input!=null)&&(output!=null)){
+            if((input!=null) && (output!=null)){
                 while((input.read(bt))!=(-1)){
                     output.write(bt,0,bt.length);
                 }

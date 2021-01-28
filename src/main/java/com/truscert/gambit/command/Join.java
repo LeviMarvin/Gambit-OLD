@@ -1,6 +1,5 @@
 package com.truscert.gambit.command;
 
-import com.truscert.gambit.game.data.ConfigData;
 import com.truscert.gambit.manager.RoomManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,8 +15,7 @@ public class Join implements CommandExecutor {
         }
         Player player = (Player) sender;
         if (args.length == 1) {
-            String arg0 = args[0];
-            int id = 0;
+            int id;
             try {
                 id = Integer.parseInt(args[0]);
             } catch (NumberFormatException e) {
@@ -27,10 +25,9 @@ public class Join implements CommandExecutor {
             RoomManager.getManager().addPlayer(player, id);
             player.teleport(RoomManager.getManager().getRoom(id).Central);
             sender.sendMessage("§eYou have joined the game!");
-            return true;
         } else {
             sender.sendMessage("§cCommand Error!");
-            return true;
         }
+        return true;
     }
 }

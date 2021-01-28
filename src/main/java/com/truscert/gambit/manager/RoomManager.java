@@ -27,12 +27,12 @@ public class RoomManager {
     public RoomManager() {}
 
     //List of room
-    List<Room> Rooms = new ArrayList<Room>();
+    List<Room> Rooms = new ArrayList<>();
     //Save where the player teleported.
-    public Map<String, Location> locations = new HashMap<String, Location>();
+    public Map<String, Location> locations = new HashMap<>();
     //Save the player Inventory and Armory.
-    Map<String, ItemStack[]> inv = new HashMap<String, ItemStack[]>();
-    Map<String, ItemStack[]> armor = new HashMap<String, ItemStack[]>();
+    Map<String, ItemStack[]> inv = new HashMap<>();
+    Map<String, ItemStack[]> armor = new HashMap<>();
     //
     int roomSize = 0;
 
@@ -110,6 +110,7 @@ public class RoomManager {
         Room room = new Room(num, Timestamp.getInstance().getTs(), central, team1, team2);
         Rooms.add(room);
 
+        assert central != null;
         Gambit.getInstance().getConfig().set("Rooms." + num, serializeLoc(central));
         List<Integer> list = Gambit.getInstance().getConfig().getIntegerList("Rooms.RoomIDs");
         list.add(num);
