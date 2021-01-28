@@ -26,7 +26,7 @@ public class Debug implements CommandExecutor {
             Gambit.getInstance().getConfig().
                     set("Debug.playerLocation", com.truscert.gambit.game.data.Debug.getDebugData().playerLocation);
             player.sendMessage(
-                    "§eYour location that saved in disk (Server Got): §f" +
+                    "§eThe location that saved in disk (Server Got): §f" +
                             Gambit.getInstance().getConfig().get("Debug.playerLocation")
             );
             player.sendMessage(
