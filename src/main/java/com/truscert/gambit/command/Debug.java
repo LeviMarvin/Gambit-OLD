@@ -18,27 +18,25 @@ public class Debug implements CommandExecutor {
             sender.sendMessage("§cOnly players may execute this!");
             return true;
         }
-        switch (args.length) {
-            case 0:
-                Player player = (Player) sender;
-                sender.sendMessage("§eYour location:" + player.getLocation());
-                com.truscert.gambit.game.data.Debug.getDebugData().playerLocation = player.getLocation();
-                player.sendMessage("§eYour location in RAM" + com.truscert.gambit.game.data.Debug.getDebugData().playerLocation);
-                Gambit.getInstance().getConfig().
-                        set("Debug.playerLocation", com.truscert.gambit.game.data.Debug.getDebugData().playerLocation);
-                player.sendMessage(
-                        "§eYour location that saved in disk (Server Got): " +
-                                Gambit.getInstance().getConfig().get("Debug.playerLocation")
-                        );
-                player.sendMessage(
-                        "Ct: " + ConfigData.getData().roomCenter + "\n" +
-                                "T1: " + ConfigData.getData().roomTeam1 + "\n" +
-                                "T2: " + ConfigData.getData().roomTeam2 + "\n"
-                );
-                return true;
-            default:
-                sender.sendMessage("§cCommand Error!");
-                return true;
+        if (args.length == 0) {
+            Player player = (Player) sender;
+            sender.sendMessage("§eYour location:§f" + player.getLocation());
+            com.truscert.gambit.game.data.Debug.getDebugData().playerLocation = player.getLocation();
+            player.sendMessage("§eYour location in RAM:§f" + com.truscert.gambit.game.data.Debug.getDebugData().playerLocation);
+            Gambit.getInstance().getConfig().
+                    set("Debug.playerLocation", com.truscert.gambit.game.data.Debug.getDebugData().playerLocation);
+            player.sendMessage(
+                    "§eYour location that saved in disk (Server Got): §f" +
+                            Gambit.getInstance().getConfig().get("Debug.playerLocation")
+            );
+            player.sendMessage(
+                    "Ct: " + ConfigData.getData().roomCenter + "\n" +
+                            "T1: " + ConfigData.getData().roomTeam1 + "\n" +
+                            "T2: " + ConfigData.getData().roomTeam2 + "\n"
+            );
+            return true;
         }
+        sender.sendMessage("§cCommand Error!");
+        return true;
     }
 }

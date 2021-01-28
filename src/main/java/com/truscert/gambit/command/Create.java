@@ -3,14 +3,11 @@ package com.truscert.gambit.command;
 import com.truscert.gambit.game.Room;
 import com.truscert.gambit.game.data.ConfigData;
 import com.truscert.gambit.manager.RoomManager;
-import com.truscert.gambit.world.CreateWorld;
 import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.io.IOException;
 
 import static com.truscert.gambit.Gambit.DEBUGGABLE;
 
@@ -25,7 +22,13 @@ public class Create implements CommandExecutor {
                         ConfigData.getData().roomTeam1,
                         ConfigData.getData().roomTeam2
                 );
-                sender.sendMessage("§aCreated room at " + "" + "(World), " + "" + "(Position)");
+                sender.sendMessage(
+                        "§aCreated room at " +
+                                ConfigData.getData().roomCenter.getWorld() + "(World), " + "[" +
+                                ConfigData.getData().roomCenter.getBlockX() + "," +
+                                ConfigData.getData().roomCenter.getBlockY() + "," +
+                                ConfigData.getData().roomCenter.getBlockZ() + "]" + "(Position)"
+                );
                 if (DEBUGGABLE) {
                     sender.sendMessage("§aThe room id is " + room.getId());
                 }
@@ -41,7 +44,13 @@ public class Create implements CommandExecutor {
                         ConfigData.getData().roomTeam2,
                         sender
                 );
-                sender.sendMessage("§aCreated room at " + "" + "(World), " + "" + "(Position)");
+                sender.sendMessage(
+                        "§aCreated room at " +
+                        ConfigData.getData().roomCenter.getWorld() + "(World), " + "[" +
+                        ConfigData.getData().roomCenter.getBlockX() + "," +
+                        ConfigData.getData().roomCenter.getBlockY() + "," +
+                        ConfigData.getData().roomCenter.getBlockZ() + "]" + "(Position)"
+                );
                 if (DEBUGGABLE) {
                     sender.sendMessage("§aThe room id is " + (Integer.parseInt(args[0])+1) );
                 }
