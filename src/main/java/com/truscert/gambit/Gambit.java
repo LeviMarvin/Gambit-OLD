@@ -22,7 +22,7 @@ public final class Gambit extends JavaPlugin {
     public final static boolean DEBUGGABLE = true;
     public final static String DEBUGNOTICE = "§l§e[§6DEBUG§e]§f ";
     public final static String PREFIX = "§l§6[Gambit] ";
-    HashMap<String, Class<?>> dataMap = new HashMap<String, Class<?>>();
+    HashMap<String, Class<?>> dataMap = new HashMap<>();
 
     @Override
     public void onEnable(){
