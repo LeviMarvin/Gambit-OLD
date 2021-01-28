@@ -14,12 +14,10 @@ public class Command implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
-        //ONLY PLAYER
         if (!(sender instanceof Player)) {
             sender.sendMessage("§cOnly players may execute this!");
             return true;
         }
-
         Player player = (Player) sender;
         if (args.length == 0) {
             if (command.getName().equals("menu")) {
