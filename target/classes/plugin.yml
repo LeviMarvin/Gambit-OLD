@@ -1,5 +1,5 @@
 name: Gambit
-version: 1.0-SNAPSHOT
+version: 1.0
 main: com.truscert.gambit.Gambit
 #depend: [ MythicMobs ]
 authors: [ Levi_Marvin ]
