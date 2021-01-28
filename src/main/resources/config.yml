@@ -1,7 +1,7 @@
 Rooms:
   RoomIDs:
 
-team1_point:
+Team1_point:
   ==: org.bukkit.Location
   world: world
   x: 0
@@ -9,16 +9,7 @@ team1_point:
   z: 0
   pitch: 32.999996
   yaw: 217.26373
-team2_point:
-  ==: org.bukkit.Location
-  world: world
-  x: 0
-  y: 60
-  z: 0
-  pitch: 32.999996
-  yaw: 217.26373
-
-center_point:
+Team2_point:
   ==: org.bukkit.Location
   world: world
   x: 0
@@ -27,7 +18,16 @@ center_point:
   pitch: 32.999996
   yaw: 217.26373
 
-monster_float:
+Center_point:
+  ==: org.bukkit.Location
+  world: world
+  x: 0
+  y: 60
+  z: 0
+  pitch: 32.999996
+  yaw: 217.26373
+
+Monster_float:
   #刷怪点X/Z坐标浮动值
   x: 100
   z: 100
