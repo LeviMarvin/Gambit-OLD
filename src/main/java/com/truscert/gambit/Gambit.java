@@ -29,7 +29,7 @@ public final class Gambit extends JavaPlugin {
         plugin = this;
         if(!getDataFolder().exists())
             getDataFolder().mkdir();
-        
+
         if(getConfig() == null)
             saveDefaultConfig();
 
@@ -67,7 +67,7 @@ public final class Gambit extends JavaPlugin {
      */
     private void initCommand() {
         Bukkit.getConsoleSender().sendMessage(PREFIX + "§a +初始化命令...");
-        dataMap.put("gambit", Gambit.class);
+        dataMap.put("gambit", com.truscert.gambit.command.Gambit.class);
         dataMap.put("debug", Debug.class);
         dataMap.put("menu", Menu.class);
         dataMap.put("leave", Leave.class);
