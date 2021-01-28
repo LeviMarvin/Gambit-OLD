@@ -101,6 +101,9 @@ public class RoomManager {
     }
     //Create room
     public Room createRoom(Location central, Location team1, Location team2) {
+        if (central == null | team1 == null | team2 == null) {
+            Gambit.getInstance().getServer().getConsoleSender().sendMessage("§4FATAL ERROR: NPE");
+        }
         int num = roomSize + 1;
         roomSize++;
 
@@ -117,6 +120,9 @@ public class RoomManager {
     }
 
     public Room createRoom(int id, Location central, Location team1, Location team2, CommandSender cs) {
+        if (central == null | team1 == null | team2 == null) {
+            Gambit.getInstance().getServer().getConsoleSender().sendMessage("§4FATAL ERROR: NPE");
+        }
         int num = id + 1;
         cs.sendMessage("§l§aThe room is" + num);
 

@@ -4,6 +4,7 @@ import com.truscert.gambit.game.Room;
 import com.truscert.gambit.game.data.ConfigData;
 import com.truscert.gambit.manager.RoomManager;
 import com.truscert.gambit.world.CreateWorld;
+import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,7 +32,7 @@ public class Create implements CommandExecutor {
                 if (sender instanceof Player) ((Player) sender).teleport(ConfigData.getData().roomTeam1);
                 return true;
             case 1:
-                if (!(args[0] instanceof String)) sender.sendMessage("§cThe option parameter must be a number!");
+                if (!(NumberUtils.isNumber(args[0]))) sender.sendMessage("§cThe option parameter must be a number!");
 
                 Room _room = RoomManager.getManager().createRoom(
                         Integer.parseInt(args[0]),
