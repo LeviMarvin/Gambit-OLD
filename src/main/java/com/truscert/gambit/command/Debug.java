@@ -17,11 +17,15 @@ public class Debug implements CommandExecutor {
         switch (args.length) {
             case 0:
                 Player player = (Player) sender;
-                sender.sendMessage(player.getLocation() + "");
+                sender.sendMessage("Your location:" + player.getLocation());
                 com.truscert.gambit.game.data.Debug.getDebugData().playerLocation = player.getLocation();
-                player.sendMessage(com.truscert.gambit.game.data.Debug.getDebugData().playerLocation + "");
+                player.sendMessage("Your location in RAM" + com.truscert.gambit.game.data.Debug.getDebugData().playerLocation);
                 Gambit.getInstance().getConfig().
                         set("Debug.playerLocation", com.truscert.gambit.game.data.Debug.getDebugData().playerLocation);
+                player.sendMessage(
+                        "Your location that saved in disk (Server Got): " +
+                                Gambit.getInstance().getConfig().get("Debug.playerLocation")
+                        );
                 player.sendMessage(
                         "Ct: " + ConfigData.getData().roomCenter + "\n" +
                                 "T1: " + ConfigData.getData().roomTeam1 + "\n" +
@@ -29,6 +33,7 @@ public class Debug implements CommandExecutor {
                 );
                 return true;
             default:
+                sender.sendMessage("§cCommand Error!");
                 return true;
         }
     }

@@ -67,8 +67,6 @@ public final class Gambit extends JavaPlugin {
      */
     private void initCommand() {
         Bukkit.getConsoleSender().sendMessage(PREFIX + "§a +初始化命令...");
-        //CommandExecutor CE = new Command();
-
         dataMap.put("gambit", Create.class);
         dataMap.put("debug", Debug.class);
         dataMap.put("menu", Menu.class);
@@ -76,7 +74,6 @@ public final class Gambit extends JavaPlugin {
         dataMap.put("join", Join.class);
         dataMap.put("remove", Remove.class);
         dataMap.put("create", Create.class);
-
         dataMap.forEach((k, v) -> {
             CommandExecutor CE = null;
             try {
@@ -100,6 +97,7 @@ public final class Gambit extends JavaPlugin {
         //plugin.getConfig().notifyAll();
         Bukkit.getServer().getConsoleSender().sendMessage("§e#WARNING# The plugin is running in debug mode! The \"/debug\" command now available.");
         Bukkit.getServer().getConsoleSender().sendMessage(DEBUGNOTICE + "DataFolder: " + "\"" + Gambit.getInstance().getDataFolder().toString() + "\"");
+        Bukkit.getServer().getConsoleSender().sendMessage(DEBUGNOTICE + "SC: Source | GT: Get");
         Bukkit.getServer().getConsoleSender().sendMessage(DEBUGNOTICE + "CT_SC: " + ConfigData.getData().roomCenter);
         Bukkit.getServer().getConsoleSender().sendMessage(DEBUGNOTICE + "CT_GT: " + plugin.getConfig().getSerializable("Center_point", Location.class));
         Bukkit.getServer().getConsoleSender().sendMessage(DEBUGNOTICE + "T1_SC: " + ConfigData.getData().roomTeam1);
