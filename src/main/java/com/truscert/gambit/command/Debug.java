@@ -10,6 +10,10 @@ import org.bukkit.entity.Player;
 public class Debug implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (!Gambit.DEBUGGABLE) {
+            sender.sendMessage("§eDebug mode unavailable!");
+            return true;
+        }
         if (!(sender instanceof Player)) {
             sender.sendMessage("§cOnly players may execute this!");
             return true;
