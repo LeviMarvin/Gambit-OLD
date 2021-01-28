@@ -20,6 +20,7 @@ public class Remove implements CommandExecutor {
             sender.sendMessage("§cInvalid room ID!");
         }
         RoomManager.getManager().removeRoom(id);
+        sender.sendMessage("§aRemoved the room successfully.");
         return true;
     }
 }

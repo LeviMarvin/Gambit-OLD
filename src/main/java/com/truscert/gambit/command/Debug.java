@@ -11,7 +11,7 @@ public class Debug implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!Gambit.DEBUGGABLE) {
-            sender.sendMessage("§eDebug mode unavailable!");
+            sender.sendMessage("§eDebug mode is unavailable!");
             return true;
         }
         if (!(sender instanceof Player)) {
@@ -21,13 +21,13 @@ public class Debug implements CommandExecutor {
         switch (args.length) {
             case 0:
                 Player player = (Player) sender;
-                sender.sendMessage("Your location:" + player.getLocation());
+                sender.sendMessage("§eYour location:" + player.getLocation());
                 com.truscert.gambit.game.data.Debug.getDebugData().playerLocation = player.getLocation();
-                player.sendMessage("Your location in RAM" + com.truscert.gambit.game.data.Debug.getDebugData().playerLocation);
+                player.sendMessage("§eYour location in RAM" + com.truscert.gambit.game.data.Debug.getDebugData().playerLocation);
                 Gambit.getInstance().getConfig().
                         set("Debug.playerLocation", com.truscert.gambit.game.data.Debug.getDebugData().playerLocation);
                 player.sendMessage(
-                        "Your location that saved in disk (Server Got): " +
+                        "§eYour location that saved in disk (Server Got): " +
                                 Gambit.getInstance().getConfig().get("Debug.playerLocation")
                         );
                 player.sendMessage(
