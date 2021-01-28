@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Team;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -88,9 +89,8 @@ public final class Gambit extends JavaPlugin {
         });
     }
 
-    @Override
-    public void onDisable(){
-        saveConfig();
+    private void initTeam() {
+
     }
 
     private void debug() {
@@ -104,5 +104,10 @@ public final class Gambit extends JavaPlugin {
         Bukkit.getServer().getConsoleSender().sendMessage(DEBUGNOTICE + "T1_GT: " + plugin.getConfig().getSerializable("Team1_point", Location.class));
         Bukkit.getServer().getConsoleSender().sendMessage(DEBUGNOTICE + "T2_SC: " + ConfigData.getData().roomTeam2);
         Bukkit.getServer().getConsoleSender().sendMessage(DEBUGNOTICE + "T2_GT: " + plugin.getConfig().getSerializable("Team2_point", Location.class));
+    }
+
+    @Override
+    public void onDisable(){
+        saveConfig();
     }
 }
