@@ -1,5 +1,5 @@
-world: 'world'
-#进行游戏的世界名
+Rooms:
+  RoomIDs:
 
 team1_point:
   ==: org.bukkit.Location
@@ -18,8 +18,6 @@ team2_point:
   pitch: 32.999996
   yaw: 217.26373
 
-#  房间的中心
-#  以这个点为圆心，按float值随机生成三个刷怪点
 center_point:
   ==: org.bukkit.Location
   world: world
