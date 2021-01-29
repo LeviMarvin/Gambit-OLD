@@ -100,7 +100,6 @@ public final class Gambit extends JavaPlugin {
     }
 
     private void debug() {
-        //plugin.getConfig().notifyAll();
         Bukkit.getServer().getConsoleSender().sendMessage("§e#WARNING# The plugin is running in debug mode! The \"/debug\" command now available.");
         Bukkit.getServer().getConsoleSender().sendMessage(DEBUGNOTICE + "DataFolder: " + "\"" + Gambit.getInstance().getDataFolder().toString() + "\"");
         Bukkit.getServer().getConsoleSender().sendMessage(DEBUGNOTICE + "SC: Source | GT: Get");
@@ -114,6 +113,7 @@ public final class Gambit extends JavaPlugin {
 
     @Override
     public void onDisable(){
+        Bukkit.getConsoleSender().sendMessage("§aThanks for using. Bye!");
         saveConfig();
     }
 }
