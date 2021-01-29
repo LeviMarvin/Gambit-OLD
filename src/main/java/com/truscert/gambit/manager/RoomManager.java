@@ -60,10 +60,8 @@ public class RoomManager {
         player.getInventory().setArmorContents(null);
         player.getInventory().clear();
 
-        //TODO: Teleport player to the game world
         locations.put(player.getName(), player.getLocation());
         player.teleport(room.Central);
-        //teleport to the room spawn
     }
 
     //Remove players
