@@ -12,6 +12,7 @@ com\truscert\gambit\game\data\ConfigData.class
 com\truscert\gambit\manager\RoomManager.class
 com\truscert\gambit\world\CreateWorld.class
 com\truscert\gambit\listener\MenuListener.class
+com\truscert\gambit\manager\TeamManager.class
 com\truscert\gambit\command\Create.class
 com\truscert\gambit\command\Remove.class
 com\truscert\gambit\game\Menu.class

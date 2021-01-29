@@ -1,6 +1,7 @@
 package com.truscert.gambit.command;
 
 import com.truscert.gambit.manager.RoomManager;
+import com.truscert.gambit.manager.TeamManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,7 +24,8 @@ public class Join implements CommandExecutor {
                 return false;
             }
             RoomManager.getManager().addPlayer(player, id);
-            player.teleport(RoomManager.getManager().getRoom(id).Central);
+            //player.teleport(RoomManager.getManager().getRoom(id).Central);
+            TeamManager.getTeamManager().teamRed.addEntry(player.toString());
             sender.sendMessage("§eYou have joined the game!");
         } else {
             sender.sendMessage("§cCommand Error!");
