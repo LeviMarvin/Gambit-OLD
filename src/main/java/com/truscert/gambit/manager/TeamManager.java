@@ -5,8 +5,14 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 
 public class TeamManager {
-    Scoreboard teamScoreboard = Gambit.getInstance().getServer().
-            getScoreboardManager().getNewScoreboard();
-    Team teamOne = teamScoreboard.registerNewTeam("ONE");
-    Team teamTwo = teamScoreboard.registerNewTeam("TWO");
+    private static TeamManager instance;
+    public static TeamManager getTeamManager() {
+        if (instance == null) instance = new TeamManager();
+        return instance;
+    }
+
+    Scoreboard teamScoreboard = Gambit.getInstance().getServer(). getScoreboardManager().getNewScoreboard();
+    Team teamOne = teamScoreboard.registerNewTeam("Red");
+    Team teamTwo = teamScoreboard.registerNewTeam("Blue");
+    teamOne.addEntry();
 }
