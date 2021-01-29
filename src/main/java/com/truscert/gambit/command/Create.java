@@ -32,7 +32,7 @@ public class Create implements CommandExecutor {
                 if (DEBUGGABLE) {
                     sender.sendMessage("§aThe room id is " + room.getId());
                 }
-                if (sender instanceof Player) ((Player) sender).teleport(ConfigData.getData().roomTeam1);
+
                 return true;
             case 1:
                 if (!(NumberUtils.isNumber(args[0]))) sender.sendMessage("§cThe option parameter must be a number!");
@@ -51,6 +51,7 @@ public class Create implements CommandExecutor {
                         ConfigData.getData().roomCenter.getBlockY() + "," +
                         ConfigData.getData().roomCenter.getBlockZ() + "]" + "(Position)"
                 );
+                RoomManager.getManager().addPlayer((Player) sender, Integer.parseInt(args[0]));
                 if (DEBUGGABLE) {
                     sender.sendMessage("§aThe room id is " + (Integer.parseInt(args[0])+1) );
                 }

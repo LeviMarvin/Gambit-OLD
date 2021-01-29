@@ -9,6 +9,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Scoreboard;
+import com.truscert.gambit.manager.TeamManager;
 import org.bukkit.scoreboard.Team;
 
 import java.lang.reflect.InvocationTargetException;
@@ -38,6 +40,7 @@ public final class Gambit extends JavaPlugin {
 
         initConfig();
         initCommand();
+        initTeam();
 
         getServer().getPluginManager().registerEvents(new GameListener(), this);
         getServer().getPluginManager().registerEvents(new MenuListener(), this);
@@ -90,7 +93,10 @@ public final class Gambit extends JavaPlugin {
     }
 
     private void initTeam() {
-
+        Bukkit.getConsoleSender().sendMessage(PREFIX + "§a +初始化队伍...");
+        TeamManager.getTeamManager().initManager();
+        TeamManager.getTeamManager().teamRed.setDisplayName("§c红队");
+        TeamManager.getTeamManager().teamBlue.setDisplayName("§1蓝队");
     }
 
     private void debug() {

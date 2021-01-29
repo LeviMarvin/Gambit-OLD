@@ -11,8 +11,13 @@ public class TeamManager {
         return instance;
     }
 
-    Scoreboard teamScoreboard = Gambit.getInstance().getServer(). getScoreboardManager().getNewScoreboard();
-    Team teamOne = teamScoreboard.registerNewTeam("Red");
-    Team teamTwo = teamScoreboard.registerNewTeam("Blue");
-    teamOne.addEntry();
+    public Scoreboard teamScoreboard = Gambit.getInstance().getServer().
+            getScoreboardManager().getNewScoreboard();
+    public Team teamRed;
+    public Team teamBlue;
+
+    public void initManager() {
+        teamRed = teamScoreboard.registerNewTeam("Red");
+        teamBlue = teamScoreboard.registerNewTeam("Blue");
+    }
 }
