@@ -7,6 +7,9 @@ before_install:
   - pip install codecov
   - pip install coverage
 
+script:
+  - coverage run Gambit-1.0.jar
+
 after_success:
   # 运行CodeCov
   - codecov
