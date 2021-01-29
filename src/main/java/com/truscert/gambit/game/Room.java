@@ -11,7 +11,7 @@ public class Room {
     public Location Central;
     public Location Team1;
     public Location Team2;
-    List<String> PlayerList;
+    public List<String> PlayerList;
 
     public Room(int Id, String Timestamp, Location Central, Location Team1, Location Team2) {
         this.Id = Id;
